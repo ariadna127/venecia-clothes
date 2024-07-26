@@ -1,0 +1,140 @@
+header {
+    background-color: $background-h-f;
+    color: $color-text-h-f;
+    width: 100%;
+    display: flex;
+    padding: 1.25rem .625rem 0rem 1.25rem;
+    height: 8.625rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "h1 icono" "search search";
+    height: 8.125rem;
+
+    .buscar {
+        grid-area: search;
+        width: 100%;
+        position: relative;
+        bottom: 40%;
+
+        form {
+            height: 2.5rem;
+
+            label {
+                height: 1.1875rem;
+            }
+
+            .input-buscar {
+                width: 100%;
+                border: solid .0625rem white;
+                background-color: $background-h-f;
+                border-radius: .3125rem;
+                height: 2.25rem;
+                font-size: 1rem;
+                font-family: 'venecia';
+                padding: .625rem;
+            }
+        }
+
+        img {
+            width: 1.25rem;
+            height: 1.25rem;
+            position: absolute;
+            top: 62%;
+            left: 90%;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-text-h-f;
+        grid-area: h1;
+        height: 3.375rem;
+
+        h1 {
+            font-size: 3.125rem;
+            font-family: 'venecia';
+            font-weight: lighter;
+        }
+    }
+
+    .usuario-carrito {
+        height: 3.375rem;
+        padding-top: .8125rem;
+        width: 2rem;
+        justify-self: end;
+        grid-area: icono;
+        margin-right: .3125rem;
+
+        img:nth-child(1) {
+            display: none;
+        }
+    }
+}
+
+.header-nav {
+    display: block;
+    padding-top: 1.125rem;
+
+    input {
+        display: none;
+
+        &:checked~ul {
+            left: 0;
+        }
+    }
+
+    label {
+        i {
+            img {
+                height: 1.75rem;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        background-color: $background-h-f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.875rem;
+        height: 100vh;
+        width: 60%;
+        position: fixed;
+        left: -100%;
+        top: 0;
+
+        li {
+            a {
+                text-decoration: none;
+                color: $color-text-h-f;
+                position: relative;
+                padding: 0 5px;
+                transition: all 0.3s;
+                &:hover{
+                    filter: drop-shadow(1px 1px 15px white);
+                }
+                &::after{
+                    position: absolute;
+                    border-top: 2px solid $color-text-h-f;
+                    width: 0;
+                    content: '';
+                    left: 0;
+                    bottom: -0.625rem;
+                    transition: 0.3s;
+                }
+                &:hover::after{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

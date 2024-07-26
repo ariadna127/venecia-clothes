@@ -1,0 +1,299 @@
+@media (min-width: 768px) {
+
+    /*HEADER*/
+    header {
+        flex-direction: column;
+        width: 100%;
+        height: 10rem;
+        padding: 0;
+    }
+
+    .header-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        height: 6.25rem;
+        width: 100%;
+        border-bottom: solid .0625rem white;
+        gap: 0;
+
+        .buscar {
+            width: 15.625rem;
+            padding-bottom: .625rem;
+            bottom: 0;
+
+            form {
+                .input-buscar {
+                    width: 12.5rem;
+                    margin-left: .625rem;
+                }
+            }
+
+            img {
+                left: 75%;
+                top: 15%;
+            }
+        }
+
+        a {
+            width: 15.625rem;
+            height: 4.375rem;
+
+            h1 {
+                text-align: center;
+            }
+
+        }
+
+        .usuario-carrito {
+            width: 15.625rem;
+            justify-content: end;
+            padding: .625rem .3125rem 0 0;
+        }
+    }
+
+    .header-nav {
+        padding-top: 0;
+        height: 3.75rem;
+
+        input,
+        label {
+            display: none;
+        }
+
+        ul {
+            flex-direction: row;
+            left: 0;
+            height: 3.75rem;
+            position: static;
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+
+    /*main INDEX*/
+    .section-1 {
+        div {
+            img {
+                width: 12.8125rem;
+                height: 16.875rem;
+
+                &:nth-child(3) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .section-2 {
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        justify-content: space-between;
+        grid-template-areas: "remeras pantalones sweaters";
+        grid-template-rows: none;
+        height: 23.75rem;
+
+        div {
+            width: 100%;
+            height: 17.5rem;
+        }
+    }
+
+    /*main PRODUCTOS*/
+    .fil-ord {
+        div {
+            display: flex;
+            gap: .625rem;
+
+            p {
+                display: block;
+                padding-top: .5rem;
+            }
+        }
+
+        .filtrar-prod {
+            display: none;
+        }
+    }
+
+    .section-productos {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-areas: 
+        "fil prod"
+        ;
+        
+
+
+    }
+
+    .filtros {
+        grid-area: fil;
+        display: flex;
+        flex-direction: column;
+        gap: 3.75rem;
+        margin-left: 1.5625rem;
+        margin-bottom: 2.5rem;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: .625rem;
+
+            h3 {
+                font-size: 1.125rem;
+                font-weight: bolder;
+                color: black;
+            }
+
+            ul {
+                list-style: none;
+
+                padding-left: 0;
+
+                li {
+                    padding-bottom: .625rem;
+                    opacity: 0.8;
+                    &:hover{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
+                .active{
+                    color:black;
+                    opacity: 3;
+                }
+            }
+
+            &:nth-child(2) {
+                form {
+                    cursor: pointer;
+                    div {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        gap: .3125rem;
+                        padding-bottom: .625rem;
+
+                        input {
+                            appearance: none;
+                            width: 1.25rem;
+                            height: 1.25rem;
+                            border: 0.0625rem solid black;
+                            border-radius: 20%;
+                        }
+
+                        label {
+                            opacity: 0.8;
+                            &:hover{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                form {
+                    display: flex;
+                    gap: .625rem;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .625rem;
+
+                        label {
+                            opacity: 0.8;
+                        }
+
+                        input {
+                            appearance: none;
+                            width: 3.875rem;
+                            height: 1.875rem;
+                            border: 0.0625rem solid grey;
+                            border-radius: 10%;
+                        }
+
+                        button {
+                            border: 2px solid rgb(76, 75, 75);
+                            width: 1.25rem;
+                            height: 1.25rem;
+                            border-radius: 50%;
+                            position: relative;
+                            top: 2.375rem;
+
+                            &::before {
+                                content: url(../asset/img/proximo.png);
+                                position: absolute;
+                                top: 0;
+                                left: 0.0625rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .productos {
+        grid-template-columns: repeat(3, 11.5rem);
+        row-gap: 2.25rem;
+        justify-content: start;
+        grid-area: prod;
+
+        div {
+            &:nth-child(9) {
+                display: block;
+            }
+
+            img {
+                height: 16.875rem;
+            }
+        }
+
+        input {
+            grid-column: 2/3;
+            width: 100%;
+            font-size: .75rem;
+        }
+    }
+
+    .p-vacio{
+        grid-area: prod;
+        font-size: medium;
+        padding: 0;
+        text-align: start;
+    }
+
+
+
+    /*main CONTACTO*/
+    .contacto {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /*main COMO COMPRAR*/
+    .como-comprar {
+        form {
+            width: 37.5rem;
+            justify-content: center
+        }
+    }
+
+    /*main GIFT CARD*/
+    .gift-card {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    /*FOOTER*/
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 14.375rem;
+        padding-top: 1.25rem;
+    }
+}

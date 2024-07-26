@@ -1,0 +1,66 @@
+.ordenar-por {
+    p {
+        display: none;
+    }
+
+    form {
+        select {
+            width: 16.25rem;
+            height: 2.5rem;
+            font-family: 'abz';
+            font-size: 1rem;
+            border-color: black;
+            border-radius: .3125rem;
+        }
+    }
+}
+
+.gift-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.875rem 0;
+    gap: 1.5625rem;
+    .div-gift-card {
+
+        .gift-1 {
+            width: 15.625rem;
+            height: 15.625rem;
+            background-image: url(../asset/img/otoño.jpg);
+            background-size: 28rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 13.75rem;
+                width: 13.75rem;
+                border-bottom: 3px solid;
+                border-top: 3px solid;
+                color: #450f04;
+
+                p {
+                    font-family: 'venecia';
+                    font-size: 1.4375rem;
+                    text-align: center;
+
+                    &:nth-child(1) {
+                        font-size: 2.8125rem;
+                        font-weight: bolder;
+                    }
+                }
+            }
+        }
+
+        .gift-2 {
+            p{
+                margin-bottom: 0;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@media (min-width: 1024px) {
+
+    /*HEADER*/
+    .header-div {
+        .buscar {
+            width: 16.25rem;
+            height: 4.875rem;
+
+            form {
+                .input-buscar {
+                    width: 16.25rem;
+                    height: 2.5rem;
+                }
+            }
+
+            img {
+                left: 95%;
+                top: 45%;
+            }
+        }
+
+        h1 {
+            width: 16.25rem;
+            margin-bottom: .1875rem;
+        }
+
+        .usuario-carrito {
+            width: 16.25rem;
+        }
+    }
+
+    /*main INICIO*/
+    .section-1 {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+
+        h2 {
+            width: 15rem;
+            font-size: 2.25rem;
+
+            br {
+                display: block;
+            }
+        }
+
+        div {
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 13.8125rem;
+                height: 17.875rem;
+            }
+        }
+    }
+
+    .section-2 {
+        height: 25rem;
+
+        div {
+            height: 20rem;
+        }
+    }
+
+    /*main PRODUCTOS*/
+    .section-productos {
+        grid-template-columns: 18% 82%;
+    }
+
+    .productos {
+        grid-template-columns: repeat(3, 14.5rem);
+        margin-left: 4.375rem;
+        column-gap: 2.1875rem;
+        div {
+            img {
+                height: 21.875rem;
+            }
+        }
+    }
+    /*main COMO COMPRAR*/
+    .como-comprar{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        div{
+            margin-right: 1.875rem;
+        }
+        form{
+            width: 100%;
+        }
+    }
+    /*main GIFT CARD*/
+    .gift-card{
+        row-gap: 1.875rem;
+        .div-gift-card{
+            .gift-1{
+                width: 18.75rem;
+                height: 18.75rem;
+                div{
+                    p{
+                        font-size: 1.875rem;
+                        &:nth-child(1){
+                            font-size: 3.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

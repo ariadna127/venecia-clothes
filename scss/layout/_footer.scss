@@ -1,0 +1,38 @@
+footer{
+    background-color: $background-h-f;
+    color: $color-text-h-f;
+    height: 31.875rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.25rem;
+    gap: 1.875rem;
+    div{
+        h3{
+            font-size: 1rem;
+            margin: .625rem 0rem .625rem 0rem;
+            font-weight: bolder;
+        }
+        ul{
+            list-style: none;
+            padding-left: 0;
+            li{
+                margin-bottom: .625rem;
+                a{
+                    text-decoration: none;
+                    color: $color-text-h-f;
+                    transition: all 0.3s;
+                    &:hover{
+                        filter: drop-shadow(1px 1px 15px white);
+                    }
+                    img{
+                        height: 1.125rem;
+                        width: 1.125rem;
+                    }
+                }
+            }
+        }
+        img{
+            margin-right: .625rem;
+        }
+    }
+}

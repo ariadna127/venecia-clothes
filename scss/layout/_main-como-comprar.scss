@@ -1,0 +1,17 @@
+.como-comprar{
+    form{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        border-radius: .3125rem;
+        h3{
+            color: red;
+        }
+        input{
+            margin-bottom: 1.25rem;
+            border: 1px solid grey;
+            border-radius: .3125rem;
+            color: white;
+        }
+    }
+}

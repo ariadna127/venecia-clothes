@@ -1,0 +1,49 @@
+@media (min-width: 1320px) {
+    /*main INICIO*/
+    .section-1 {
+        h2{
+            font-size: 2.8125rem;
+            margin-left: 1.25rem;
+        }
+        div {
+            margin-left: 3.125rem;
+            gap: 3.125rem;
+            img {
+                width: 16.875rem;
+                height: 23.125rem;
+            }
+        }
+    }
+    .section-2{
+        height: 32.125rem;
+        div{
+            height: 23.75rem;
+            p{
+                font-size: 1.875rem;
+            }
+        }
+    }
+    /*main PRODUCTOS*/
+    .productos{
+        grid-template-columns: repeat(3, 17.5rem);
+        column-gap: 2.5rem;
+        row-gap: 3.25rem;
+        div{
+            img{
+                height: 25rem;
+            }
+        }
+    }
+    .gift-card{
+        .div-gift-card{
+            .gift-1{
+                height: 21.25rem;
+                width: 21.25rem;
+                div{
+                    width: 17.5rem;
+                    height: 17.5rem;
+                }
+            }
+        }
+    }
+}

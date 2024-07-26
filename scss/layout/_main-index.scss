@@ -1,0 +1,82 @@
+.section-1 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../asset/img/clothes.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.875rem;
+
+    h2 {
+        font-family: 'venecia';
+        font-size: 2.25rem;
+        width: 19.25rem;
+        font-weight: lighter;
+        text-align: center;
+        opacity: 0.9;
+        margin-top: 1.875rem;
+
+        br {
+            display: none;
+        }
+    }
+
+    div {
+        display: flex;
+        gap: 1.25rem;
+
+        img {
+            width: 8.125rem;
+            height: 11.25rem;
+
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+    }
+}
+
+.section-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 62.5rem;
+    gap: 1.875rem;
+
+    div {
+        width: 18.75rem;
+        height: 18.75rem;
+        position: relative;
+        p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.875rem;
+            font-weight: bolder;
+            color: white;
+        }
+    }
+}
+
+.remera {
+    background-image: url('../asset/img/shirt.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.pantalones {
+    background-image: url('../asset/img/pants.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.sweaters {
+    background-image: url('../asset/img/sweaters.jpg');
+    background-size: cover;
+    background-position: center;
+}
+

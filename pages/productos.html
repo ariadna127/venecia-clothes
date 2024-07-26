@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubrí los productos que tenemos para ofrecerte, con los mejores precios y calidad ">
+    <meta name="keywords" content="ropa, mujer, online, compra">
+    <meta name="author" content="ariadnacoronel">
+    <meta name="cophyright" content="Venecia-Clothes">
+    <meta property="og:title" content="Venecia Clothes"> 
+    <meta property="og:description" content="Tienda online de ropa para mujer">
+    <meta property="og:site_name" content="Venecia Clothes">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/nhQHgH9f/Venecia.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Venecia indumentaria online">
+    <title>Venecia | Productos</title>
+    <link rel="shortcut icon" href="../asset/img/ven.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-div">
+            <div class="buscar">
+                <form action="">
+                    <label for="buscando"></label>
+                    <input type="search" id="buscando" placeholder="¿Qué estás buscando?" class="input-buscar">
+                </form>
+                <img src="../asset/img/buscar.png" alt="">
+            </div>
+            <a href="../index.html"><h1>Venecia</h1></a>
+            <div class="usuario-carrito">
+                <img src="../asset/img/usuario (1).png" alt="">
+                <img src="../asset/img/carrito-de-compras.png" alt="">
+            </div>
+        </div>
+        <nav class="header-nav">
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i><img src="../asset/img/menuu.png" alt=""></i>
+            </label>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="como-comprar.html">Cómo comprar</a></li>
+                <li><a href="gift-card.html">Gift Card</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <main>
+        <div class="contenedor">
+            <div class="div-inicio">
+                <p>Inicio ></p>
+                <p>Productos</p>
+            </div>
+            <div class="cat-linea">
+                <div></div>
+                <h2 id="titulo-categoria">PRODUCTOS</h2>
+                <div></div>
+            </div>
+            <div class="fil-ord">
+                <div class="ordenar-por">
+                    <p>Ordernar por:</p>
+                    <form action="">
+                        <select id="select-ordenar" class="select-form">
+                            <option value="" disabled selected>---Seleccione---</option>
+                            <option value="p:men-ma">Precio:Menor a mayor</option>
+                            <option value="p:ma-me">Precio:Mayor a menor</option>
+                            <option value="a-z">A-Z</option>
+                            <option value="z-a">Z-A</option>
+                            <option value="mas-nuev-viejo">Más Nuevo al más Viejo</option>
+                            <option value="mas-viejo-nuev">Más Viejo al mas Nuevo</option>
+                            <option value="mas-vendidos">Más vendidos</option>
+                        </select>
+                    </form>
+                </div>
+                <form action="" class="filtrar-prod">
+                    <select>
+                        <option disabled="Filtrar" selected>Filtrar</option>
+                        <option value="p:men-ma">CATEGORÍAS</option>
+                        <option value="p:ma-me">TALLE</option>
+                        <option value="a-z">PRECIO</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <section class="section-productos">
+            <div class="filtros">
+                <div class="filtros-categorias">
+                    <h3>CATEGORÍAS</h3>
+                    <ul>
+                        <li id="todos" class="li-categoria">Todos los productos</li>
+                        <li id="camperas" class="li-categoria">Camperas y buzos</li>
+                        <li id="sweaters" class="li-categoria">Sweaters</li>
+                        <li id="remeras" class="li-categoria">Remeras</li>
+                        <li id="pantalones" class="li-categoria">Pantalones</li>
+
+                    </ul>
+                </div>
+                <div class="filtros-talle">
+                    <h3>TALLE</h3>
+                    <form action="" class="form-talle">
+                        <div>
+                            <input type="checkbox" name="talle" id="s">
+                            <label for="s"> S</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" id="m">
+                            <label for="m"> M</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" id="l">
+                            <label for="l"> L</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" id="xl">
+                            <label for="xl"> Xl</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="talle" id="xxl">
+                            <label for="xxl"> Xxl</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="filtros-precio">
+                    <h3>PRECIO</h3>
+                    <form id="form-precio" class="form-precio">
+                        <div>
+                            <label for="desde">Desde</label>
+                            <input id="precio-desde" type="number" name="desde">
+                        </div>
+                        <div>
+                            <label for="hasta">Hasta</label>
+                            <input id="precio-hasta" type="number" name="hasta">
+                        </div>
+                        <div>
+                            <button type="submit" class="button-submit"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="contenedor-productos" class="productos">
+                <!--Aca se cargan los productos de js-->
+            </div>
+            <p id="p-vacio" class="p-vacio disabled">NO TENEMOS RESULTADOS PARA TU BÚSQUEDA. POR FAVOR, INTENTÁ CON OTROS FILTROS.</p>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h3>CATEGORÍAS</h3>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="como-comprar.html">Cómo comprar</a></li>
+                <li><a href="gift-card.html">Gift Card</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>CONTÁCTANOS</h3>
+            <ul>
+                <li><a href=""><img src="../asset/img/correo-electronico.png" alt="">venecia.clothes@gmail.com</a></li>
+                <li><a href="https://api.whatsapp.com/send/?phone=5493813348333"><img src="../asset/img/whatsapp.png" alt="">+54 9 3813348333</a></li>
+                <li><a href="https://maps.app.goo.gl/8tq4q85JycDmA44f7"><img src="../asset/img/ubicacion.png" alt="">Ing. La Florida - Calle Ortiz 345</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>REDES SOCIALES</h3>
+            <img src="../asset/img/facebook.png" alt="">
+            <img src="../asset/img/instagram.png" alt="">
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script src="../js/productos.js"></script>
+</body>
+</html>
