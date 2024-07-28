@@ -1,3 +1,8 @@
+
+.no-scroll{
+    overflow: hidden;
+}
+
 .fil-ord {
     display: flex;
     flex-direction: column;
@@ -7,43 +12,196 @@
     margin-bottom: 1.25rem;
 
     div {
-        p {
-            display: none;
-        }
-
         form {
             select {
                 width: 16.25rem;
                 height: 2.5rem;
                 font-family: 'abz';
                 font-size: 1rem;
-                border-color: black;
+                border-color: $color-grey;
                 border-radius: .3125rem;
                 text-align: center;
+                cursor: pointer;
             }
         }
     }
 
-    form {
-        select {
-            height: 2.5rem;
-            font-family: 'abz';
-            font-size: 1rem;
-            border-color: black;
-            border-radius: .3125rem;
-            width: 6.5625rem;
-        }
+}
+
+.filtrar-prod{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .625rem;
+    align-items: center;
+    width: 9.375rem;
+    height: 2.5rem;
+    border: solid 1px $color-grey;
+    border-radius: .3125rem;
+    cursor: pointer;
+
+
+    p{
+        margin: 0;
     }
 }
 
+.section-productos{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+
+.cerrar-filtros{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;
+    gap: 1.875rem;
+    background-color: $background-h-f;
+    color: $color-text-h-f;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    h2{
+        font-size: larger;
+        margin: 0;
+    }
+}
+
+
+
 .filtros {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: fixed;
+    z-index: 9;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: .3s;
+    .contenedor-filtros{
+        display: flex;
+        flex-direction: column;
+        gap: 1.875rem;
+        padding: 1.25rem;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: .625rem;
+    
+            h3{
+                font-size: 1.125rem;
+                font-weight: bolder;
+                color: black;
+            }
+    
+            ul{
+                list-style: none;
+                padding-left: 0;
+    
+                li{
+                    padding-bottom: .625rem;
+                    opacity: 0.8;
+                    transition: all 0.2s;
+                    &:hover{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
+                .active{
+                    font-weight: 600;
+                }
+            }
+            &:nth-child(2){
+                form{
+                    cursor: pointer;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        gap: .3125rem;
+                        padding-bottom: .625rem;
+    
+                        input{
+                            appearance: none;
+                            width: 1.25rem;
+                            height: 1.25rem;
+                            border: 0.0625rem solid $color-grey;
+                            border-radius: 20%;
+                        }
+                        label{
+                            opacity: 0.8;
+                            transition: all 0.2s;
+                            &:hover{
+                                opacity: 1;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(3){
+                form{
+                    display: flex;
+                    gap: .625rem;
+    
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        gap: .625rem;
+    
+                        label{
+                            opacity: 0.8;
+                        }
+    
+                        input {
+                            appearance: none;
+                            width: 3.875rem;
+                            height: 1.875rem;
+                            border: 0.0625rem solid grey;
+                            border-radius: 10%;
+                        }
+    
+                        button {
+                            border: 2px solid rgb(76, 75, 75);
+                            width: 1.25rem;
+                            height: 1.25rem;
+                            border-radius: 50%;
+                            position: relative;
+                            top: 2.375rem;
+    
+                            &::before {
+                                content: url(../asset/img/proximo.png);
+                                position: absolute;
+                                top: 0;
+                                left: 0.0625rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+
+.filtros.visible{
+    transform: translateX(0%);
 }
 
 .productos {
-    display: flex;
-    flex-direction: column;
-    gap: 1.875rem;
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    column-gap: .9375rem;
+    row-gap: 1.875rem;
+    justify-content: center;
     padding-bottom: 3rem;
 
     a{
@@ -63,6 +221,7 @@
             img {
                 width: 100%;
                 display: flex;
+                height: 17.5rem;
     
             }
     
@@ -79,9 +238,15 @@
                 p {
                     text-align: center;
                     margin-bottom: 0;
+                    font-size: 15px;
                 }
             }
         }
+    }
+    input {
+        grid-column: 1/3;
+        justify-self: center;
+        width: 60%;
     }
 
 

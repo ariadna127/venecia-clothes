@@ -19,9 +19,10 @@
     <title>Venecia | Productos</title>
     <link rel="shortcut icon" href="../asset/img/ven.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body >
     <header>
         <div class="header-div">
             <div class="buscar">
@@ -78,70 +79,72 @@
                         </select>
                     </form>
                 </div>
-                <form action="" class="filtrar-prod">
-                    <select>
-                        <option disabled="Filtrar" selected>Filtrar</option>
-                        <option value="p:men-ma">CATEGORÍAS</option>
-                        <option value="p:ma-me">TALLE</option>
-                        <option value="a-z">PRECIO</option>
-                    </select>
-                </form>
+                <div id="filtrar-prod" class="filtrar-prod">
+                    <p>Filtrar</p>
+                    <i class="bi bi-funnel"></i>
+                </div>
             </div>
         </div>
         <section class="section-productos">
-            <div class="filtros">
-                <div class="filtros-categorias">
-                    <h3>CATEGORÍAS</h3>
-                    <ul>
-                        <li id="todos" class="li-categoria">Todos los productos</li>
-                        <li id="camperas" class="li-categoria">Camperas y buzos</li>
-                        <li id="sweaters" class="li-categoria">Sweaters</li>
-                        <li id="remeras" class="li-categoria">Remeras</li>
-                        <li id="pantalones" class="li-categoria">Pantalones</li>
-
-                    </ul>
+            <div id="filtros" class="filtros">
+                <div id="cerrar-filtros" class="cerrar-filtros">
+                    <h2>FILTROS</h2>
+                    <i class="bi bi-x-lg"></i>
                 </div>
-                <div class="filtros-talle">
-                    <h3>TALLE</h3>
-                    <form action="" class="form-talle">
-                        <div>
-                            <input type="checkbox" name="talle" id="s">
-                            <label for="s"> S</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="talle" id="m">
-                            <label for="m"> M</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="talle" id="l">
-                            <label for="l"> L</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="talle" id="xl">
-                            <label for="xl"> Xl</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="talle" id="xxl">
-                            <label for="xxl"> Xxl</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="filtros-precio">
-                    <h3>PRECIO</h3>
-                    <form id="form-precio" class="form-precio">
-                        <div>
-                            <label for="desde">Desde</label>
-                            <input id="precio-desde" type="number" name="desde">
-                        </div>
-                        <div>
-                            <label for="hasta">Hasta</label>
-                            <input id="precio-hasta" type="number" name="hasta">
-                        </div>
-                        <div>
-                            <button type="submit" class="button-submit"></button>
-                        </div>
-                    </form>
-                </div>
+                <div class="contenedor-filtros">
+                    <div class="filtros-categorias">
+                        <h3>CATEGORÍAS</h3>
+                        <ul>
+                            <li id="todos" class="li-categoria">Todos los productos</li>
+                            <li id="camperas" class="li-categoria">Camperas y buzos</li>
+                            <li id="sweaters" class="li-categoria">Sweaters</li>
+                            <li id="remeras" class="li-categoria">Remeras</li>
+                            <li id="pantalones" class="li-categoria">Pantalones</li>
+    
+                        </ul>
+                    </div>
+                    <div class="filtros-talle">
+                        <h3>TALLE</h3>
+                        <form action="" class="form-talle">
+                            <div>
+                                <input type="checkbox" name="talle" id="s">
+                                <label for="s"> S</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" id="m">
+                                <label for="m"> M</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" id="l">
+                                <label for="l"> L</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" id="xl">
+                                <label for="xl"> Xl</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="talle" id="xxl">
+                                <label for="xxl"> Xxl</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="filtros-precio">
+                        <h3>PRECIO</h3>
+                        <form id="form-precio" class="form-precio">
+                            <div>
+                                <label for="desde">Desde</label>
+                                <input id="precio-desde" type="number" name="desde">
+                            </div>
+                            <div>
+                                <label for="hasta">Hasta</label>
+                                <input id="precio-hasta" type="number" name="hasta">
+                            </div>
+                            <div>
+                                <button type="submit" class="button-submit"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>                
             </div>
             <div id="contenedor-productos" class="productos">
                 <!--Aca se cargan los productos de js-->

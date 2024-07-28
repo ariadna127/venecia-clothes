@@ -117,122 +117,26 @@
     }
 
     .section-productos {
-        display: grid;
         grid-template-columns: 25% 75%;
         grid-template-areas: 
         "fil prod"
         ;
         
-
-
     }
 
+    .cerrar-filtros{
+        display: none;
+    }
     .filtros {
         grid-area: fil;
-        display: flex;
-        flex-direction: column;
-        gap: 3.75rem;
-        margin-left: 1.5625rem;
+        padding-left: 1.5625rem;
         margin-bottom: 2.5rem;
-
-        div {
-            display: flex;
-            flex-direction: column;
-            gap: .625rem;
-
-            h3 {
-                font-size: 1.125rem;
-                font-weight: bolder;
-                color: black;
-            }
-
-            ul {
-                list-style: none;
-
-                padding-left: 0;
-
-                li {
-                    padding-bottom: .625rem;
-                    opacity: 0.8;
-                    &:hover{
-                        opacity: 1;
-                        cursor: pointer;
-                    }
-                }
-                .active{
-                    color:black;
-                    opacity: 3;
-                }
-            }
-
-            &:nth-child(2) {
-                form {
-                    cursor: pointer;
-                    div {
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: nowrap;
-                        gap: .3125rem;
-                        padding-bottom: .625rem;
-
-                        input {
-                            appearance: none;
-                            width: 1.25rem;
-                            height: 1.25rem;
-                            border: 0.0625rem solid black;
-                            border-radius: 20%;
-                        }
-
-                        label {
-                            opacity: 0.8;
-                            &:hover{
-                                opacity: 1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &:nth-child(3) {
-                form {
-                    display: flex;
-                    gap: .625rem;
-
-                    div {
-                        display: flex;
-                        flex-direction: column;
-                        gap: .625rem;
-
-                        label {
-                            opacity: 0.8;
-                        }
-
-                        input {
-                            appearance: none;
-                            width: 3.875rem;
-                            height: 1.875rem;
-                            border: 0.0625rem solid grey;
-                            border-radius: 10%;
-                        }
-
-                        button {
-                            border: 2px solid rgb(76, 75, 75);
-                            width: 1.25rem;
-                            height: 1.25rem;
-                            border-radius: 50%;
-                            position: relative;
-                            top: 2.375rem;
-
-                            &::before {
-                                content: url(../asset/img/proximo.png);
-                                position: absolute;
-                                top: 0;
-                                left: 0.0625rem;
-                            }
-                        }
-                    }
-                }
-            }
+        position: relative;
+        z-index: 0;
+        transform: translateX(0);
+        .contenedor-filtros{
+            padding: 0;
+            gap: 3.75rem;
         }
     }
 

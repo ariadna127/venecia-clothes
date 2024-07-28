@@ -65,15 +65,17 @@ header {
     }
 
     .usuario-carrito {
+        display: flex;
         height: 3.375rem;
         padding-top: .8125rem;
-        width: 2rem;
+        width: 4.375rem;
         justify-self: end;
         grid-area: icono;
         margin-right: .3125rem;
 
-        img:nth-child(1) {
-            display: none;
+        img{
+            width: 2rem;
+            height: 2rem;
         }
     }
 }

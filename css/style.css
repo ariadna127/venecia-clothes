@@ -78,15 +78,17 @@ header {
   font-weight: lighter;
 }
 .header-div .usuario-carrito {
+  display: flex;
   height: 3.375rem;
   padding-top: 0.8125rem;
-  width: 2rem;
+  width: 4.375rem;
   justify-self: end;
   grid-area: icono;
   margin-right: 0.3125rem;
 }
-.header-div .usuario-carrito img:nth-child(1) {
-  display: none;
+.header-div .usuario-carrito img {
+  width: 2rem;
+  height: 2rem;
 }
 
 .header-nav {
@@ -167,8 +169,8 @@ header {
   gap: 1.25rem;
 }
 .section-1 div img {
-  width: 8.125rem;
-  height: 11.25rem;
+  width: 9.375rem;
+  height: 12.5rem;
 }
 .section-1 div img:nth-child(3) {
   display: none;
@@ -249,6 +251,10 @@ header {
   color: black;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .fil-ord {
   display: flex;
   flex-direction: column;
@@ -257,35 +263,169 @@ header {
   align-items: center;
   margin-bottom: 1.25rem;
 }
-.fil-ord div p {
-  display: none;
-}
 .fil-ord div form select {
   width: 16.25rem;
   height: 2.5rem;
   font-family: "abz";
   font-size: 1rem;
-  border-color: black;
+  border-color: grey;
   border-radius: 0.3125rem;
   text-align: center;
+  cursor: pointer;
 }
-.fil-ord form select {
+
+.filtrar-prod {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.625rem;
+  align-items: center;
+  width: 9.375rem;
   height: 2.5rem;
-  font-family: "abz";
-  font-size: 1rem;
-  border-color: black;
+  border: solid 1px grey;
   border-radius: 0.3125rem;
-  width: 6.5625rem;
+  cursor: pointer;
+}
+.filtrar-prod p {
+  margin: 0;
+}
+
+.section-productos {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cerrar-filtros {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  gap: 1.875rem;
+  background-color: black;
+  color: white;
+  padding: 1.25rem 0;
+  cursor: pointer;
+}
+.cerrar-filtros h2 {
+  font-size: larger;
+  margin: 0;
 }
 
 .filtros {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: fixed;
+  z-index: 9;
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translateX(-100%);
+  transition: 0.3s;
 }
-
-.productos {
+.filtros .contenedor-filtros {
   display: flex;
   flex-direction: column;
   gap: 1.875rem;
+  padding: 1.25rem;
+}
+.filtros .contenedor-filtros div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.filtros .contenedor-filtros div h3 {
+  font-size: 1.125rem;
+  font-weight: bolder;
+  color: black;
+}
+.filtros .contenedor-filtros div ul {
+  list-style: none;
+  padding-left: 0;
+}
+.filtros .contenedor-filtros div ul li {
+  padding-bottom: 0.625rem;
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.filtros .contenedor-filtros div ul li:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.filtros .contenedor-filtros div ul .active {
+  font-weight: 600;
+}
+.filtros .contenedor-filtros div:nth-child(2) form {
+  cursor: pointer;
+}
+.filtros .contenedor-filtros div:nth-child(2) form div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.3125rem;
+  padding-bottom: 0.625rem;
+}
+.filtros .contenedor-filtros div:nth-child(2) form div input {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid grey;
+  border-radius: 20%;
+}
+.filtros .contenedor-filtros div:nth-child(2) form div label {
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.filtros .contenedor-filtros div:nth-child(2) form div label:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.filtros .contenedor-filtros div:nth-child(3) form {
+  display: flex;
+  gap: 0.625rem;
+}
+.filtros .contenedor-filtros div:nth-child(3) form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.filtros .contenedor-filtros div:nth-child(3) form div label {
+  opacity: 0.8;
+}
+.filtros .contenedor-filtros div:nth-child(3) form div input {
+  appearance: none;
+  width: 3.875rem;
+  height: 1.875rem;
+  border: 0.0625rem solid grey;
+  border-radius: 10%;
+}
+.filtros .contenedor-filtros div:nth-child(3) form div button {
+  border: 2px solid rgb(76, 75, 75);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  position: relative;
+  top: 2.375rem;
+}
+.filtros .contenedor-filtros div:nth-child(3) form div button::before {
+  content: url(../asset/img/proximo.png);
+  position: absolute;
+  top: 0;
+  left: 0.0625rem;
+}
+
+.filtros.visible {
+  transform: translateX(0%);
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  column-gap: 0.9375rem;
+  row-gap: 1.875rem;
+  justify-content: center;
   padding-bottom: 3rem;
 }
 .productos a {
@@ -303,6 +443,7 @@ header {
 .productos a div img {
   width: 100%;
   display: flex;
+  height: 17.5rem;
 }
 .productos a div div {
   height: 4.375rem;
@@ -317,6 +458,12 @@ header {
 .productos a div div p {
   text-align: center;
   margin-bottom: 0;
+  font-size: 15px;
+}
+.productos input {
+  grid-column: 1/3;
+  justify-self: center;
+  width: 60%;
 }
 
 .p-vacio {
@@ -471,47 +618,6 @@ footer div img {
   margin-right: 0.625rem;
 }
 
-@media (min-width: 375px) {
-  /*HEADER*/
-  .header-div .usuario-carrito {
-    width: 4.375rem;
-    display: flex;
-  }
-  .header-div .usuario-carrito img {
-    width: 2rem;
-    height: 2rem;
-  }
-  .header-div .usuario-carrito img:nth-child(1) {
-    display: block;
-  }
-  /*main INDEX*/
-  .section-1 div img {
-    width: 9.375rem;
-    height: 12.5rem;
-  }
-  /*main PRODUCTOS*/
-  .productos {
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    column-gap: 0.9375rem;
-    justify-content: center;
-  }
-  .productos div img {
-    width: 100%;
-    height: 17.5rem;
-  }
-  .productos div div {
-    width: 100%;
-  }
-  .productos div div p {
-    font-size: 15px;
-  }
-  .productos input {
-    grid-column: 1/3;
-    justify-self: center;
-    width: 60%;
-  }
-}
 @media (min-width: 480px) {
   /*HEADER*/
   .header-div a h1 {
@@ -706,99 +812,23 @@ footer div img {
     display: none;
   }
   .section-productos {
-    display: grid;
     grid-template-columns: 25% 75%;
     grid-template-areas: "fil prod";
   }
+  .cerrar-filtros {
+    display: none;
+  }
   .filtros {
     grid-area: fil;
-    display: flex;
-    flex-direction: column;
-    gap: 3.75rem;
-    margin-left: 1.5625rem;
+    padding-left: 1.5625rem;
     margin-bottom: 2.5rem;
-  }
-  .filtros div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-  .filtros div h3 {
-    font-size: 1.125rem;
-    font-weight: bolder;
-    color: black;
-  }
-  .filtros div ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  .filtros div ul li {
-    padding-bottom: 0.625rem;
-    opacity: 0.8;
-  }
-  .filtros div ul li:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-  .filtros div ul .active {
-    color: black;
-    opacity: 3;
-  }
-  .filtros div:nth-child(2) form {
-    cursor: pointer;
-  }
-  .filtros div:nth-child(2) form div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 0.3125rem;
-    padding-bottom: 0.625rem;
-  }
-  .filtros div:nth-child(2) form div input {
-    appearance: none;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 0.0625rem solid black;
-    border-radius: 20%;
-  }
-  .filtros div:nth-child(2) form div label {
-    opacity: 0.8;
-  }
-  .filtros div:nth-child(2) form div label:hover {
-    opacity: 1;
-  }
-  .filtros div:nth-child(3) form {
-    display: flex;
-    gap: 0.625rem;
-  }
-  .filtros div:nth-child(3) form div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-  .filtros div:nth-child(3) form div label {
-    opacity: 0.8;
-  }
-  .filtros div:nth-child(3) form div input {
-    appearance: none;
-    width: 3.875rem;
-    height: 1.875rem;
-    border: 0.0625rem solid grey;
-    border-radius: 10%;
-  }
-  .filtros div:nth-child(3) form div button {
-    border: 2px solid rgb(76, 75, 75);
-    width: 1.25rem;
-    height: 1.25rem;
-    border-radius: 50%;
     position: relative;
-    top: 2.375rem;
+    z-index: 0;
+    transform: translateX(0);
   }
-  .filtros div:nth-child(3) form div button::before {
-    content: url(../asset/img/proximo.png);
-    position: absolute;
-    top: 0;
-    left: 0.0625rem;
+  .filtros .contenedor-filtros {
+    padding: 0;
+    gap: 3.75rem;
   }
   .productos {
     grid-template-columns: repeat(3, 11.5rem);
@@ -962,7 +992,7 @@ footer div img {
     column-gap: 2.5rem;
     row-gap: 3.25rem;
   }
-  .productos div img {
+  .productos a div img {
     height: 25rem;
   }
   .gift-card .div-gift-card .gift-1 {

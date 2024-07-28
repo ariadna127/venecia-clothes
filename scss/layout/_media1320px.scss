@@ -28,11 +28,14 @@
         grid-template-columns: repeat(3, 17.5rem);
         column-gap: 2.5rem;
         row-gap: 3.25rem;
-        div{
-            img{
-                height: 25rem;
+        a{
+            div{
+                img{
+                    height: 25rem;
+                }
             }
         }
+
     }
     .gift-card{
         .div-gift-card{

@@ -10,7 +10,10 @@ const formPrecio = document.querySelector('#form-precio');
 const precioDesde = document.querySelector('#precio-desde');
 const precioHasta = document.querySelector('#precio-hasta');
 const parrafoVacio = document.querySelector('#p-vacio');
-
+const filtrarProd = document.querySelector('#filtrar-prod');
+const filtros = document.querySelector('#filtros');
+const cerrarFiltros = document.querySelector('#cerrar-filtros');
+const body = document.querySelector('body');
 
 fetch("../json/productos.json")
 .then(response => response.json())
@@ -63,6 +66,8 @@ productosCategorias.forEach((categoria)=>{
             tituloCategoria.innerText = "PRODUCTOS";
             cargarProductos(productos);
         }
+
+        closeFilters();
 
     })
 })
@@ -131,6 +136,7 @@ function ordenarPrecio() {
             parrafoVacio.classList.remove('disabled');
             console.log('VACIO');
         }
+        closeFilters();
     }
 }
 
@@ -146,3 +152,24 @@ function vaciarInput(input) {
 
 vaciarInput(precioDesde);
 vaciarInput(precioHasta);
+
+
+
+
+
+//EVENTO:MOSTRAR y ESCONDER FILTROS
+filtrarProd.addEventListener('click', ()=>{
+    filtros.classList.add('visible');
+    body.classList.add('no-scroll');
+
+})
+
+cerrarFiltros.addEventListener('click', ()=>{
+    closeFilters();
+})
+
+
+function closeFilters(params) {
+    filtros.classList.remove('visible');
+    body.classList.remove('no-scroll');
+}
