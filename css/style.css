@@ -184,12 +184,12 @@ header {
   height: 62.5rem;
   gap: 1.875rem;
 }
-.section-2 div {
+.section-2 a div {
   width: 18.75rem;
   height: 18.75rem;
   position: relative;
 }
-.section-2 div p {
+.section-2 a div p {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -660,16 +660,16 @@ footer div img {
     align-content: center;
     gap: 0rem;
   }
-  .section-2 div {
+  .section-2 a div {
     width: 100%;
     height: 18rem;
     cursor: pointer;
     transition: all 0.4s;
   }
-  .section-2 div:hover {
+  .section-2 a div:hover {
     filter: brightness(70%);
   }
-  .section-2 div p {
+  .section-2 a div p {
     font-size: 1.5625rem;
   }
   .remera {
@@ -795,7 +795,7 @@ footer div img {
     grid-template-rows: none;
     height: 23.75rem;
   }
-  .section-2 div {
+  .section-2 a div {
     width: 100%;
     height: 17.5rem;
   }
@@ -922,7 +922,7 @@ footer div img {
   .section-2 {
     height: 25rem;
   }
-  .section-2 div {
+  .section-2 a div {
     height: 20rem;
   }
   /*main PRODUCTOS*/
@@ -980,10 +980,10 @@ footer div img {
   .section-2 {
     height: 32.125rem;
   }
-  .section-2 div {
+  .section-2 a div {
     height: 23.75rem;
   }
-  .section-2 div p {
+  .section-2 a div p {
     font-size: 1.875rem;
   }
   /*main PRODUCTOS*/

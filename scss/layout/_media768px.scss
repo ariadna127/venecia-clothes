@@ -92,11 +92,13 @@
         grid-template-areas: "remeras pantalones sweaters";
         grid-template-rows: none;
         height: 23.75rem;
-
-        div {
-            width: 100%;
-            height: 17.5rem;
+        a{
+            div {
+                width: 100%;
+                height: 17.5rem;
+            }
         }
+
     }
 
     /*main PRODUCTOS*/
