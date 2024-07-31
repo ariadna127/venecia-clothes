@@ -14,6 +14,12 @@ const filtrarProd = document.querySelector('#filtrar-prod');
 const filtros = document.querySelector('#filtros');
 const cerrarFiltros = document.querySelector('#cerrar-filtros');
 const body = document.querySelector('body');
+const formBusqueda = document.querySelector('#form-busqueda');
+const inputBuscar = document.querySelector('#buscando');
+const parrafoBusqueda = document.querySelector('#p-vacio-busqueda');
+const contenedorSelectOrdenar = document.querySelector('#contenedor-ordenar-por');
+const filtrosTalle = document.querySelector('#filtros-talle');
+const filtrosPrecio = document.querySelector('#filtros-precio');
 
 
 
@@ -26,12 +32,14 @@ function getProductsLs() {
 }
 
 
-
+//Funcion get categoria LS
 function getCategoria() {
     const categoriaLs = localStorage.getItem('categoria-actual');
     return categoriaLs;
 }
 
+
+//Cargar productos en el DOM
 function cargarProductos(productos) {
     if (productos.length != 0) {
         parrafoVacio.classList.add('disabled');
@@ -68,6 +76,8 @@ productosCategorias.forEach((categoria)=>{
         
         selectOrdenar.value = 'seleccione';
 
+        activarSelectyFiltros();
+
         const productosCategoria = filtrarCategoria(idCategoria);
 
         cargarProductos(productosCategoria)
@@ -76,6 +86,7 @@ productosCategorias.forEach((categoria)=>{
 
     })
 })
+
 
 //Filtrar por categoria
 function filtrarCategoria(categoria) { 
@@ -151,14 +162,15 @@ function ordenarPor() {
     return productosCopia;
 }
 
+//Evento change del select ordenar
 selectOrdenar.addEventListener('change', ()=>{
     const productosOrdenados = ordenarPor();
     cargarProductos(productosOrdenados);
 })
 
 
-//Evento: ordenar por precio
 
+//Evento: ordenar por precio
 formPrecio.addEventListener('submit', (e)=>{
     e.preventDefault();
     localStorage.removeItem('productos-segun-precio');
@@ -168,8 +180,7 @@ formPrecio.addEventListener('submit', (e)=>{
 })
 
 
-
-//Funcion ordenarPrecio
+//Funcion ordenar por precio
 function ordenarPrecio() {
     const categoriaActual = getCategoria();
     const productosCategoria = filtrarCategoria(categoriaActual);
@@ -187,8 +198,8 @@ function ordenarPrecio() {
     }
 }
 
-//get productos segun precio
 
+//get productos segun precio del LS
 function getProductosSegunPrecio() {
     const productoSegunPrecio = JSON.parse(localStorage.getItem('productos-segun-precio'));
     return productoSegunPrecio;
@@ -206,8 +217,6 @@ function vaciarInput(input) {
 
 vaciarInput(precioDesde);
 vaciarInput(precioHasta);
-
-
 
 
 
@@ -229,31 +238,110 @@ function closeFilters(params) {
 }
 
 
+
+//BARRA DE BUSQUEDA - FILTRAR POR BUSQUEDA
+formBusqueda.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    filtrarPorbusqueda(inputBuscar.value);
+})
+
+function filtrarPorbusqueda(itemBuscar) {
+    productosCategorias.forEach(categoria => categoria.classList.remove('active'));
+    desactivarSelectyFiltros();
+    const productosABuscar = quitarAcentos(itemBuscar).toLowerCase();
+    const productosLs = getProductsLs();
+    const productosBuscados = productosLs.filter((producto)=>{
+        const nombreSinAcentos = quitarAcentos(producto.nombre).toLowerCase();
+        return nombreSinAcentos.includes(productosABuscar) || producto.categoria === productosABuscar;
+    }); 
+    console.log(productosBuscados);
+    tituloCategoria.innerText = 'RESULTADO DE BUSQUEDA';
+    if (productosBuscados.length == 0) {
+        contenedorProductos.innerHTML = "";
+        parrafoBusqueda.classList.remove('disabled');
+    } else {
+        parrafoBusqueda.classList.add('disabled');
+        cargarProductos(productosBuscados);
+    }
+    formBusqueda.reset();
+    //Eliminar el parametro de busqueda de la URL
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+}
+
+
+//funcion para quitar acentos 
+function quitarAcentos(cadena) {
+    return cadena.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+}
+
+//desactivar select y filtros
+function desactivarSelectyFiltros() {
+    contenedorSelectOrdenar.classList.add('disabled');
+    filtrosTalle.classList.add('disabled');
+    filtrosPrecio.classList.add('disabled');
+}
+
+//activar select y filtros
+function activarSelectyFiltros() {
+    contenedorSelectOrdenar.classList.remove('disabled');
+    filtrosTalle.classList.remove('disabled');
+    filtrosPrecio.classList.remove('disabled');
+}
+
+//Busqueda desde otro HTML
+
+function getParametroDeBusqueda() {
+    const urlParametro = new URLSearchParams(window.location.search);
+    console.log(urlParametro);
+    return urlParametro.get('search');
+}
+
+
+
+
 //////
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    
-    fetch("../json/productos.json")
-    .then(response => response.json())
-    .then(data => {
-        productos = data;
-        setProductos(productos)
-        manejarProductos(productos);
+    if (JSON.parse(localStorage.getItem('products')) === null) {
+        fetch("../json/productos.json")
+        .then(response => response.json())
+        .then(data => {
+            productos = data;
+            setProductos(productos)
+            getParametroDeBusqueda();
+            const itemBuscado = getParametroDeBusqueda();
+            if (itemBuscado) {
+                inputBuscar.value = itemBuscado;
+                console.log(itemBuscado);
+                filtrarPorbusqueda(itemBuscado);
+            }else{
+                manejarProductos();
+            }
+
         }
     )
+    }else{
+        const itemBuscado = getParametroDeBusqueda();
+            if (itemBuscado) {
+                inputBuscar.value = itemBuscado;
+            filtrarPorbusqueda(itemBuscado);
+            }else{
+                manejarProductos();
+            }
+    }
+    
 
     
 })
 
-function manejarProductos(productos) {
+function manejarProductos() {
     const categoriaUrl = conseguirUrlParams();
-    const categoriaActual = getCategoria();
     console.log(categoriaUrl);
-    console.log(categoriaActual);
     if (categoriaUrl != null) {
         const productosCategoria = filtrarCategoria(categoriaUrl);
         cargarProductos(productosCategoria); 
-    }else if (categoriaActual === null) {
+    }else{
         productos = getProductsLs();
         cargarProductos(productos);
     }

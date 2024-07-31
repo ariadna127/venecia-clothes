@@ -1,4 +1,9 @@
-
+#a-productos{
+    text-decoration: none;
+    p{
+        color: black;
+    }
+}
 .no-scroll{
     overflow: hidden;
 }
@@ -250,6 +255,10 @@
     }
 
 
+}
+
+#filtros-talle.disabled, #filtros-precio.disabled{
+    display: none;
 }
 
 .p-vacio{

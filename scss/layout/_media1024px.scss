@@ -4,19 +4,12 @@
     .header-div {
         .buscar {
             width: 16.25rem;
-            height: 4.875rem;
+            margin-left: .3125rem;
 
             form {
-                .input-buscar {
-                    width: 16.25rem;
-                    height: 2.5rem;
-                }
+                height: 40px;
             }
 
-            img {
-                left: 95%;
-                top: 45%;
-            }
         }
 
         h1 {

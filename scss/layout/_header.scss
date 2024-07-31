@@ -20,35 +20,50 @@ header {
     .buscar {
         grid-area: search;
         width: 100%;
-        position: relative;
-        bottom: 40%;
 
         form {
-            height: 2.5rem;
+            height: 2.25rem;
+            display: flex;
+            justify-content: space-between;
+            border: solid 1px grey;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: .625rem;
 
-            label {
-                height: 1.1875rem;
-            }
 
             .input-buscar {
                 width: 100%;
-                border: solid .0625rem white;
+                border: none;
                 background-color: $background-h-f;
-                border-radius: .3125rem;
-                height: 2.25rem;
                 font-size: 1rem;
                 font-family: 'venecia';
-                padding: .625rem;
+                color: $color-text-h-f;
+                outline: none;
+                box-sizing: border-box;
+                margin: 0;
             }
+
+            button{
+                margin: 0;
+                background-color: $background-h-f;
+                color: white;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
         }
 
-        img {
+        /*img {
             width: 1.25rem;
             height: 1.25rem;
             position: absolute;
             top: 62%;
             left: 90%;
-        }
+        }*/
     }
 
     a {

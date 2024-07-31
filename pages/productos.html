@@ -26,11 +26,10 @@
     <header>
         <div class="header-div">
             <div class="buscar">
-                <form action="">
-                    <label for="buscando"></label>
-                    <input type="search" id="buscando" placeholder="¿Qué estás buscando?" class="input-buscar">
-                </form>
-                <img src="../asset/img/buscar.png" alt="">
+                <form id="form-busqueda" class="form-busqueda" action="">
+                    <input type="text" id="buscando" placeholder="¿Qué estás buscando?" class="input-buscar">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </form>                
             </div>
             <a href="../index.html"><h1>Venecia</h1></a>
             <div class="usuario-carrito">
@@ -56,14 +55,14 @@
         <div class="contenedor">
             <div class="div-inicio">
                 <p>Inicio ></p>
-                <p>Productos</p>
+                <a id="a-productos" href="./productos.html"><p>Productos</p></a>
             </div>
             <div class="cat-linea">
                 <div></div>
                 <h2 id="titulo-categoria">PRODUCTOS</h2>
                 <div></div>
             </div>
-            <div class="fil-ord">
+            <div id="contenedor-ordenar-por" class="fil-ord">
                 <div class="ordenar-por">
                     <p>Ordernar por:</p>
                     <form action="">
@@ -103,7 +102,7 @@
     
                         </ul>
                     </div>
-                    <div class="filtros-talle">
+                    <div id="filtros-talle" class="filtros-talle">
                         <h3>TALLE</h3>
                         <form action="" class="form-talle">
                             <div>
@@ -128,7 +127,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="filtros-precio">
+                    <div id="filtros-precio" class="filtros-precio">
                         <h3>PRECIO</h3>
                         <form id="form-precio" class="form-precio">
                             <div>
@@ -150,6 +149,8 @@
                 <!--Aca se cargan los productos de js-->
             </div>
             <p id="p-vacio" class="p-vacio disabled">NO TENEMOS RESULTADOS PARA TU BÚSQUEDA. POR FAVOR, INTENTÁ CON OTROS FILTROS.</p>
+            <p id="p-vacio-busqueda" class="p-vacio disabled">No hubo resultados para tu búsqueda.</p>
+
         </section>
     </main>
     <footer>
