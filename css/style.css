@@ -667,15 +667,17 @@ header {
   font-size: 1.0625rem;
   width: 36%;
 }
-.div-agregar-carrito div i {
+.div-agregar-carrito div button {
   color: black;
   transition: 0.2s;
   cursor: pointer;
 }
-.div-agregar-carrito div i:hover {
+.div-agregar-carrito div button:hover {
   color: rgb(56, 55, 55);
 }
-.div-agregar-carrito p {
+.div-agregar-carrito button {
+  font-family: "abz";
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -688,7 +690,7 @@ header {
   cursor: pointer;
   transition: 0.2s ease;
 }
-.div-agregar-carrito p:hover {
+.div-agregar-carrito button:hover {
   background-color: rgb(34, 33, 33);
 }
 

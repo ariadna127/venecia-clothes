@@ -53,7 +53,7 @@
         font-size: 1.0625rem;
         width: 36%;
 
-        i{
+        button{
             color: black;
             transition: 0.2s;
             cursor: pointer;
@@ -63,7 +63,9 @@
         }
     }
 
-    p{
+    button{
+        font-family:'abz';
+        font-size: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
