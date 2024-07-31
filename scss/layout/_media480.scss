@@ -95,20 +95,25 @@
     }
 
     .productos {
-        grid-template-columns: repeat(2, 14.375rem);
+        grid-template-columns: repeat(2, 13.5rem);
+        box-sizing: border-box;
 
-        div {
-            transition: all 0.3s;
-
-            &:hover {
-                box-shadow: 7px 7px 10px #555;
-                transform: scale(1.05);
-            }
-
-            img {
-                height: 21.875rem;
+        a{
+            div {
+                transition: all 0.3s;
+    
+                &:hover {
+                    box-shadow: 7px 7px 10px #555;
+                    transform: scale(1.05);
+                }
+    
+                img {
+                    height: 21.875rem;
+                }
             }
         }
+
+        
     }
 
     /*main GIFT CARD*/
@@ -136,4 +141,10 @@
             }
         }
     }
+
+    /*MAIN DETALLE PRODUCTO*/
+    .contenedor-producto{
+        padding: 2rem 5rem;
+    }
+
 }

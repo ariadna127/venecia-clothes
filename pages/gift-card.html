@@ -38,13 +38,13 @@
             </div>
         </div>
         <nav class="header-nav">
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="menu-icon"><img src="../asset/img/menuu.png" alt=""></i>
+            <label id="menu" for="check">
+                <i><img src="../asset/img/menuu.png" alt=""></i>
             </label>
-            <ul>
+            <ul id="ul-menu" class="ul-menu">
+                <div id="cerrar-menu"><i id="cerrar-menu" class="bi bi-x-lg"></i></div>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
+                <li><a href="productos.html?categoria=todos">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="como-comprar.html">Cómo comprar</a></li>
                 <li><a href="gift-card.html">Gift Card</a></li>
@@ -183,5 +183,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script src="../js/busqueda.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

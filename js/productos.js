@@ -369,3 +369,4 @@ function setCategoria(categoria) {
 function setProductos(productos) {
     localStorage.setItem('products', JSON.stringify(productos));
 }
+
