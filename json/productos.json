@@ -5,7 +5,8 @@
         "precio": 12000,
         "fechaIngreso": "2024-03-12",
         "img": "../asset/img/faith-yarn-jX2cntCbrAo-unsplash.jpg",
-        "categoria": "remeras" 
+        "categoria": "remeras",
+        "talle": "S"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "precio": 33000,
         "fechaIngreso": "2024-04-22",
         "img": "../asset/img/kai-gabriel-2s3GhhJz2uY-unsplash.jpg",
-        "categoria": "pantalones"
+        "categoria": "pantalones",
+        "talle": "L"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "precio": 25000,
         "fechaIngreso": "2024-03-15",
         "img": "../asset/img/pexels-danik-prihodko-15963563.jpg",
-        "categoria": "camperas"
+        "categoria": "camperas",
+        "talle": "M"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "precio": 35000,
         "fechaIngreso": "2024-05-8",
         "img": "../asset/img/pexels-yonatan-gonzalez-9232016-min.jpg",
-        "categoria": "camperas"
+        "categoria": "camperas",
+        "talle": "S"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "precio": 29000,
         "fechaIngreso": "2024-03-1",
         "img": "../asset/img/pexels-darina-belonogova-7897414.jpg",
-        "categoria": "pantalones"
+        "categoria": "pantalones",
+        "talle": "XL"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "precio": 30000,
         "fechaIngreso": "2024-02-25",
         "img": "../asset/img/pexels-dima-valkov-6503007.jpg",
-        "categoria": "pantalones"
+        "categoria": "pantalones",
+        "talle": "XXL"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "precio": 15000,
         "fechaIngreso": "2024-07-10",
         "img": "../asset/img/pexels-andrea-musto-13522295.jpg",
-        "categoria": "remeras"
+        "categoria": "remeras",
+        "talle": "M"
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "precio": 27000,
         "fechaIngreso": "2024-07-8",
         "img": "../asset/img/rocknwool-8Lsy75LqGVc-unsplash.jpg",
-        "categoria": "sweaters"
+        "categoria": "sweaters",
+        "talle": "M"
     },
     {
         "id": 9,
@@ -69,6 +77,7 @@
         "precio": 28999,
         "fechaIngreso": "2024-04-20",
         "img": "../asset/img/pexels-vitaly-gorbachev-14436111.jpg",
-        "categoria": "sweaters"
+        "categoria": "sweaters",
+        "talle": "S"
     }
 ]

@@ -122,6 +122,7 @@ function filtrarCategoria(categoria) {
 
 function ordenarPor() {
     const categoriaActual = getCategoria();
+    console.log(categoriaActual);
     const productosCategoria = filtrarCategoria(categoriaActual);
     const productosCopia = [...productosCategoria];
     const orden = selectOrdenar.value;
@@ -343,6 +344,7 @@ function manejarProductos() {
         cargarProductos(productosCategoria); 
     }else{
         productos = getProductsLs();
+        setCategoria('todos');
         cargarProductos(productos);
     }
 

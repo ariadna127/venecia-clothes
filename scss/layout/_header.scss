@@ -81,10 +81,20 @@ header {
         grid-area: icono;
         margin-right: .3125rem;
         cursor: pointer;
+        position: relative;
 
         img{
             width: 2rem;
             height: 2rem;
+        }
+        span{
+            background-color: rgb(24, 23, 23);
+            font-size: smaller;
+            position: absolute;
+            top:15%;
+            right: -2%;
+            padding: .0625rem .1563rem;
+            border-radius: 10px;
         }
     }
 }

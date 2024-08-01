@@ -92,10 +92,20 @@ header {
   grid-area: icono;
   margin-right: 0.3125rem;
   cursor: pointer;
+  position: relative;
 }
 .header-div .usuario-carrito img {
   width: 2rem;
   height: 2rem;
+}
+.header-div .usuario-carrito span {
+  background-color: rgb(24, 23, 23);
+  font-size: smaller;
+  position: absolute;
+  top: 15%;
+  right: -2%;
+  padding: 0.0625rem 0.1563rem;
+  border-radius: 10px;
 }
 
 .header-nav {
@@ -400,6 +410,7 @@ header {
   height: 1.25rem;
   border: 0.0625rem solid grey;
   border-radius: 20%;
+  cursor: pointer;
 }
 .filtros .contenedor-filtros div:nth-child(2) form div label {
   opacity: 0.8;
@@ -441,6 +452,10 @@ header {
   position: absolute;
   top: 0;
   left: 0.0625rem;
+}
+
+.input-talle.active {
+  background-color: black;
 }
 
 .filtros.visible {
@@ -872,6 +887,9 @@ footer div img {
     width: 15.625rem;
     justify-content: end;
     padding: 0.625rem 0.3125rem 0 0;
+  }
+  .header-div .usuario-carrito span {
+    right: 0;
   }
   .header-nav {
     padding-top: 0;

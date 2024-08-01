@@ -139,6 +139,7 @@
                             height: 1.25rem;
                             border: 0.0625rem solid $color-grey;
                             border-radius: 20%;
+                            cursor: pointer;
                         }
                         label{
                             opacity: 0.8;
@@ -195,6 +196,10 @@
     }
 
     
+}
+
+.input-talle.active{
+    background-color: black;
 }
 
 .filtros.visible{
