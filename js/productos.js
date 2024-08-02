@@ -32,6 +32,7 @@ inputsTalle.forEach((input)=>{
         console.log(input.id);
         const productosTalle = filtrarTalle(input.id);
         cargarProductos(productosTalle);
+        closeFilters();
     })
 })
 
