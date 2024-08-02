@@ -20,6 +20,76 @@ const parrafoBusqueda = document.querySelector('#p-vacio-busqueda');
 const contenedorSelectOrdenar = document.querySelector('#contenedor-ordenar-por');
 const filtrosTalle = document.querySelector('#filtros-talle');
 const filtrosPrecio = document.querySelector('#filtros-precio');
+const inputsTalle = document.querySelectorAll('.input-talle');
+let categoriaActual;
+
+//Filtrar por talle
+inputsTalle.forEach((input)=>{
+    input.addEventListener('click', ()=>{
+        removerTalleMarcado();
+        selectOrdenar.value = 'seleccione';
+        input.classList.add('active');
+        console.log(input.id);
+        const productosTalle = filtrarTalle(input.id);
+        cargarProductos(productosTalle);
+    })
+})
+
+function filtrarTalle(input) {
+        let productosTalle;
+        let arregloPreciosLs = getPreciosLs();
+        console.log(arregloPreciosLs);
+        console.log(typeof arregloPreciosLs);
+        setTalle(input);
+        if (arregloPreciosLs !== null) {
+            let { precioMin, precioMax } = separarEnVariables();
+            console.log('Si hay precio');
+            console.log(precioMin);
+            console.log(precioMax);
+
+
+            let productosPrecio = ordenarPrecio(precioMin, precioMax);
+
+            console.log(productosPrecio);
+            productosTalle = productosPrecio.filter((producto)=>producto.talle === input);
+
+        }else{
+            console.log('es null');
+            productos = filtrarCategoria();
+            console.log(productos);
+            productosTalle = productos.filter((producto)=>producto.talle === input);
+            console.log(productosTalle);
+        }
+        if (productosTalle.length !== 0) {
+            return productosTalle;
+        }else{
+            parrafoVacio.classList.remove('disabled');
+            return productosTalle;
+        }
+}
+
+function setTalle(talle) {
+    return localStorage.setItem('talle', talle);
+}
+
+function getTalle() {
+    return localStorage.getItem('talle');
+}
+
+function removerTalleMarcado() {
+    inputsTalle.forEach(input=>input.classList.remove('active'));
+}
+
+function separarEnVariables() {
+    let arreglo = getPreciosLs();
+    console.log(arreglo);
+    let precioMin = arreglo[0];
+    console.log(precioMin);
+    let precioMax = arreglo[1];
+    console.log(precioMax);
+    return {precioMin, precioMax};
+}
+
 
 
 
@@ -31,12 +101,6 @@ function getProductsLs() {
     return productsLS;
 }
 
-
-//Funcion get categoria LS
-function getCategoria() {
-    const categoriaLs = localStorage.getItem('categoria-actual');
-    return categoriaLs;
-}
 
 
 //Cargar productos en el DOM
@@ -72,13 +136,19 @@ productosCategorias.forEach((categoria)=>{
 
         const idCategoria = e.currentTarget.id;
 
-        localStorage.removeItem('productos-segun-precio');
+        setCategoria(idCategoria);
+
+        removerTalleMarcado();
+
+        localStorage.removeItem('talle');
+
+        localStorage.removeItem('precios');
         
         selectOrdenar.value = 'seleccione';
 
         activarSelectyFiltros();
 
-        const productosCategoria = filtrarCategoria(idCategoria);
+        const productosCategoria = filtrarCategoria();
 
         cargarProductos(productosCategoria)
 
@@ -89,42 +159,46 @@ productosCategorias.forEach((categoria)=>{
 
 
 //Filtrar por categoria
-function filtrarCategoria(categoria) { 
-    const productoSegunPrecio = getProductosSegunPrecio();
-    console.log(productoSegunPrecio);
+function filtrarCategoria() { 
+    categoriaActual = getCategoria();
     productos = getProductsLs();
-    const categoriaMayuscula = categoria.toUpperCase();
+    const categoriaMayuscula = categoriaActual.toUpperCase();
     let productoCategoria = [];
-    setCategoria(categoria);
-    if (categoria != "todos") {
+    if (categoriaActual != "todos") {
         tituloCategoria.innerText = categoriaMayuscula;
-        if (productoSegunPrecio) {
-            productoCategoria = productoSegunPrecio.filter(producto=>producto.categoria === categoria);
-        }else{
-            console.log('no hay productos segun precio', productoSegunPrecio);
-            console.log(productos);
-            productoCategoria = productos.filter(producto=>producto.categoria === categoria);
-        } 
+        productoCategoria = productos.filter((producto)=>producto.categoria === categoriaActual);
         console.log(productoCategoria);
         return productoCategoria;        
     } else {
         tituloCategoria.innerText = "PRODUCTOS";
-        if (productoSegunPrecio) {
-            return productoSegunPrecio;
-        }else{
-            return productos
-        }
+        console.log(productos);
+        return productos;
     }
-
 }
 
 //EVENTO ORDENAR POR
 
 function ordenarPor() {
     const categoriaActual = getCategoria();
+    const talleLs = getTalle();
+    const preciosLs = getPreciosLs();
     console.log(categoriaActual);
-    const productosCategoria = filtrarCategoria(categoriaActual);
-    const productosCopia = [...productosCategoria];
+
+    let productosSelect;
+
+    if ((talleLs !== null && preciosLs !== null) || (preciosLs !== null && talleLs === null)) {
+        let { precioMin, precioMax } = separarEnVariables();
+        productosSelect =ordenarPrecio(precioMin, precioMax);
+        console.log('ordenamos por precio');
+    }else if (talleLs !== null) {
+        productosSelect = filtrarTalle(talleLs);
+        console.log(productosSelect);
+        console.log('ordenamos por talle');
+    }else{
+        productosSelect = filtrarCategoria();
+        console.log('ordenamos por categoria');
+    }
+    const productosCopia = [...productosSelect];
     const orden = selectOrdenar.value;
     console.log(orden);
     if (orden === 'a-z' || orden === 'z-a') {
@@ -174,37 +248,60 @@ selectOrdenar.addEventListener('change', ()=>{
 //Evento: ordenar por precio
 formPrecio.addEventListener('submit', (e)=>{
     e.preventDefault();
-    localStorage.removeItem('productos-segun-precio');
     selectOrdenar.value = 'seleccione';
-    ordenarPrecio();
-    formPrecio.reset()
+    let productosPrecio = ordenarPrecio(precioDesde.value, precioHasta.value);
+    cargarProductos(productosPrecio);
+    formPrecio.reset();
+    closeFilters();
 })
 
 
 //Funcion ordenar por precio
-function ordenarPrecio() {
-    const categoriaActual = getCategoria();
-    const productosCategoria = filtrarCategoria(categoriaActual);
-    precioMin = precioDesde.value === '' ? 0 : Number(precioDesde.value);
-    precioMax = precioHasta.value === '' ? Infinity : Number(precioHasta.value);
-    if (precioDesde.value != '' || precioHasta.value != '') {
-        let productoSegunPrecio = productosCategoria.filter((producto)=> precioMin < precioMax ? producto.precio >= precioMin && producto.precio <= precioMax : producto.precio >= precioMax && producto.precio <= precioMin); 
-        localStorage.setItem('productos-segun-precio', JSON.stringify(productoSegunPrecio));
-        cargarProductos(productoSegunPrecio);
-        if (productoSegunPrecio.length == 0) {
-            parrafoVacio.classList.remove('disabled');
-            console.log('VACIO');
+function ordenarPrecio(precioDesde, precioHasta) {
+    precioMin = precioDesde === '' ? 0 : Number(precioDesde);
+    precioMax = precioHasta === '' ? Infinity : Number(precioHasta);
+    let productosSegunPrecio;
+    let talleLs = getTalle();
+    console.log(talleLs);
+    if (talleLs !== null) {
+        const productosTalle = productos.filter(producto => producto.talle === talleLs);
+        if (precioMin != '' || precioMax != '') {
+            productosSegunPrecio = productosTalle.filter((producto)=> precioMin < precioMax ? producto.precio >= precioMin && producto.precio <= precioMax : producto.precio >= precioMax && producto.precio <= precioMin); 
+            juntarYGuardarPrecios(precioMin, precioMax);
         }
-        closeFilters();
+    }else{
+        console.log('no haytalle');
+        productos = filtrarCategoria();
+        if (precioDesde != '' || precioHasta != '') {
+            productosSegunPrecio = productos.filter((producto)=> precioMin < precioMax ? producto.precio >= precioMin && producto.precio <= precioMax : producto.precio >= precioMax && producto.precio <= precioMin); 
+            juntarYGuardarPrecios(precioMin, precioMax);
+        }
     }
+
+    if (productosSegunPrecio.length !== 0) {
+        return productosSegunPrecio;
+    }else{
+        parrafoVacio.classList.remove('disabled');
+        return productosSegunPrecio;
+    }
+
+}
+
+//Juntar y guardar en LS precioMin y precioMax
+
+function juntarYGuardarPrecios(precio1, precio2) {
+    let precios = [precio1, precio2];
+    localStorage.setItem('precios', JSON.stringify(precios));
+}
+
+//Traer del LS precios y separarlos en precioMin y precioMax;
+function getPreciosLs() {
+    let arreglo = JSON.parse(localStorage.getItem('precios'));
+    return arreglo;
 }
 
 
-//get productos segun precio del LS
-function getProductosSegunPrecio() {
-    const productoSegunPrecio = JSON.parse(localStorage.getItem('productos-segun-precio'));
-    return productoSegunPrecio;
-}
+
 
 //Funcion vaciar Input que tenga coma o punto
 function vaciarInput(input) {
@@ -250,8 +347,8 @@ function filtrarPorbusqueda(itemBuscar) {
     productosCategorias.forEach(categoria => categoria.classList.remove('active'));
     desactivarSelectyFiltros();
     const productosABuscar = quitarAcentos(itemBuscar).toLowerCase();
-    const productosLs = getProductsLs();
-    const productosBuscados = productosLs.filter((producto)=>{
+    productos = getProductsLs();
+    const productosBuscados = productos.filter((producto)=>{
         const nombreSinAcentos = quitarAcentos(producto.nombre).toLowerCase();
         return nombreSinAcentos.includes(productosABuscar) || producto.categoria === productosABuscar;
     }); 
@@ -304,6 +401,8 @@ function getParametroDeBusqueda() {
 //////
 
 document.addEventListener('DOMContentLoaded', ()=>{
+    localStorage.removeItem('precios');
+    localStorage.removeItem('talle');
     if (JSON.parse(localStorage.getItem('products')) === null) {
         fetch("../json/productos.json")
         .then(response => response.json())
@@ -337,13 +436,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })
 
 function manejarProductos() {
-    const categoriaUrl = conseguirUrlParams();
-    console.log(categoriaUrl);
-    if (categoriaUrl != null) {
-        const productosCategoria = filtrarCategoria(categoriaUrl);
+    conseguirUrlParams();
+    categoriaActual = getCategoria();
+    console.log(typeof categoriaActual);
+    if (categoriaActual != 'null') {
+        const productosCategoria = filtrarCategoria();
         cargarProductos(productosCategoria); 
     }else{
         productos = getProductsLs();
+        console.log(productos);
         setCategoria('todos');
         cargarProductos(productos);
     }
@@ -353,7 +454,8 @@ function manejarProductos() {
 function conseguirUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoriaProducto = urlParams.get('categoria');
-    return categoriaProducto;
+    console.log(categoriaProducto);
+    setCategoria(categoriaProducto);
 }
 
 
@@ -365,6 +467,13 @@ function setCategoria(categoria) {
         url.searchParams.set('categoria', categoria);
         window.history.replaceState({}, '', url);
     }
+
+//Funcion get categoria LS
+function getCategoria() {
+    const categoriaLs = localStorage.getItem('categoria-actual');
+    return categoriaLs;
+}
+
 
 //SetProductsLs
 
