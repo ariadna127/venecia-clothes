@@ -4,7 +4,7 @@
         "nombre": "Remera básica negra",
         "precio": 12000,
         "fechaIngreso": "2024-03-12",
-        "img": "../asset/img/faith-yarn-jX2cntCbrAo-unsplash.jpg",
+        "img": "../asset/img/remeraNegra.jpg",
         "categoria": "remeras",
         "talle": "S"
     },
@@ -13,7 +13,7 @@
         "nombre": "Pantalón Wide Leg",
         "precio": 33000,
         "fechaIngreso": "2024-04-22",
-        "img": "../asset/img/kai-gabriel-2s3GhhJz2uY-unsplash.jpg",
+        "img": "../asset/img/wideLeg.jpg",
         "categoria": "pantalones",
         "talle": "L"
     },
@@ -22,7 +22,7 @@
         "nombre": "Campera doble color",
         "precio": 25000,
         "fechaIngreso": "2024-03-15",
-        "img": "../asset/img/pexels-danik-prihodko-15963563.jpg",
+        "img": "../asset/img/camp2.jpg",
         "categoria": "camperas",
         "talle": "M"
     },
@@ -31,7 +31,7 @@
         "nombre": "Campera jean mom",
         "precio": 35000,
         "fechaIngreso": "2024-05-8",
-        "img": "../asset/img/pexels-yonatan-gonzalez-9232016-min.jpg",
+        "img": "../asset/img/campJean.jpg",
         "categoria": "camperas",
         "talle": "S"
     },
@@ -40,7 +40,7 @@
         "nombre": "Pantalón Wide Leg naranja",
         "precio": 29000,
         "fechaIngreso": "2024-03-1",
-        "img": "../asset/img/pexels-darina-belonogova-7897414.jpg",
+        "img": "../asset/img/naranja.jpg",
         "categoria": "pantalones",
         "talle": "XL"
     },
@@ -49,7 +49,7 @@
         "nombre": "Pantalón cargo",
         "precio": 30000,
         "fechaIngreso": "2024-02-25",
-        "img": "../asset/img/pexels-dima-valkov-6503007.jpg",
+        "img": "../asset/img/cargo.jpg",
         "categoria": "pantalones",
         "talle": "XXL"
     },
@@ -58,7 +58,7 @@
         "nombre": "Musculosa básica negra",
         "precio": 15000,
         "fechaIngreso": "2024-07-10",
-        "img": "../asset/img/pexels-andrea-musto-13522295.jpg",
+        "img": "../asset/img/muscuNegra.jpg",
         "categoria": "remeras",
         "talle": "M"
     },
@@ -67,7 +67,7 @@
         "nombre": "Sweater liviano",
         "precio": 27000,
         "fechaIngreso": "2024-07-8",
-        "img": "../asset/img/rocknwool-8Lsy75LqGVc-unsplash.jpg",
+        "img": "../asset/img/sweaVerde.jpg",
         "categoria": "sweaters",
         "talle": "M"
     },
@@ -76,7 +76,7 @@
         "nombre": "Sweater oversize",
         "precio": 28999,
         "fechaIngreso": "2024-04-20",
-        "img": "../asset/img/pexels-vitaly-gorbachev-14436111.jpg",
+        "img": "../asset/img/sweaAzul.jpg",
         "categoria": "sweaters",
         "talle": "S"
     }

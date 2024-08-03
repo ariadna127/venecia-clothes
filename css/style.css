@@ -172,7 +172,7 @@ header {
 }
 
 .section-1 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../asset/img/clothes.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../asset/img/portada.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -230,19 +230,19 @@ header {
 }
 
 .remera {
-  background-image: url("../asset/img/shirt.jpg");
+  background-image: url("../asset/img/remeras.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .pantalones {
-  background-image: url("../asset/img/pants.jpg");
+  background-image: url("../asset/img/pantss.jpg");
   background-size: cover;
   background-position: bottom;
 }
 
 .sweaters {
-  background-image: url("../asset/img/sweaters.jpg");
+  background-image: url("../asset/img/sweaInicio.jpg");
   background-size: cover;
   background-position: center;
 }
