@@ -1,0 +1,115 @@
+
+.contenedor-carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 1rem;
+    gap: 2rem;
+}
+
+.carrito-productos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-producto{ //.carrito-producto
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 239, 239);
+    padding: 0 .625rem;
+    border-radius: .625rem;
+    img{
+        max-width: 16%;
+    }
+}
+
+.detalles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 .625rem;
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: solid 1px grey;
+            height: 1.875rem;
+            align-items: center;
+            padding: .3125rem;
+            border-radius: 8px;
+            width: 60%;
+            transition: 0.3s;
+            cursor: pointer;
+            i{
+                align-self: center;
+            }
+
+            &:hover{
+                border-color: black;
+            }
+        }
+        i{
+            align-self: end;
+            transition: 0.2s;
+            cursor: pointer;
+            &:hover{
+                color: rgb(65, 64, 64);
+            }
+        }
+    }
+}
+
+.vaciar-total{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+    button{
+        padding: .625rem;
+        height: 2.5rem;
+        border-radius: .625rem;
+        background-color: black;
+        color: white;
+        border: none;
+        font-family: 'abz';
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:hover{
+            background-color: rgb(22, 22, 22);
+        }
+        }
+
+    div{
+        display: flex;
+        align-items: center;
+        p{
+            height: 2.5rem;
+            background-color: rgb(243, 239, 239);
+            display: flex;
+            gap: 0;
+            align-items: center;
+            padding: .625rem;
+            border-radius: 10px 0 0 10px;
+        }
+        button{
+            border-radius: 0 10px 10px 0;
+        }
+    }
+}
+
+
+.carrito-vacio, .carrito-comprado{
+    color: rgb(24, 23, 23);
+    height: 100vh;
+}
+
+.disabled{
+    display: none;
+}

@@ -1,5 +1,6 @@
 //Traemos los elementos del DOM
 const mainProductDetail = document.querySelector('#main-product-detail');
+const numerito = document.querySelector('#numerito');
 
 
 //get url params
@@ -47,25 +48,76 @@ function mostrarProducto() {
                 <p>Categoria: <span>${producto.categoria}</span></p>
                 <div class="div-agregar-carrito">
                     <div>
-                        <i id="restar" class="bi bi-dash-lg"></i>
+                        <i id="restar" class="bi bi-dash-lg suma-resta"></i>
                         <span>0</span>
-                        <i id="sumar" class="bi bi-plus-lg"></i>
+                        <i id="sumar" class="bi bi-plus-lg suma-resta"></i>
                     </div>
-                    <button id="${producto.id}">Agregar al carrito</button>                 
+                    <button class="btn-agregar" id="${producto.id}">Agregar al carrito</button>                 
                 </div>
             </div>
     `
     mainProductDetail.append(divProducto);
+
+    actualizarBotonesSumarRestar();
+
+    actualizarBotonAgregar();
 }
 
 mostrarProducto();
 
+function actualizarBotonesSumarRestar() {
+    const botonesSumaResta = document.querySelectorAll('.suma-resta');
+    botonesSumaResta.forEach((btn)=>{
+        btn.addEventListener('click', ()=>{
+            console.log('hola');
+        })
+    })
+}
 
-            
+
+
+function actualizarBotonAgregar() {
+    const botonAgregar = document.querySelector('.btn-agregar');
+
+    botonAgregar.addEventListener('click', agregarAlCarrito);
+}
 
 
 
+function setProductosEnCarrito() {
+    localStorage.setItem('productos-carrito', JSON.stringify(productosEnCarrito));
+}
 
+
+let productosEnCarrito = localStorage.getItem('productos-carrito');
+
+
+if (productosEnCarrito) {
+    productosEnCarrito = JSON.parse(productosEnCarrito);
+    actualizarNumerito();
+}else{
+    productosEnCarrito = [];
+}
+
+
+function agregarAlCarrito(e) {
+    const productoAgregado = buscarProducto(idProducto, productos);
+
+    if (productosEnCarrito.some(producto => producto.id === productoAgregado.id)) {
+        const index = productosEnCarrito.findIndex((producto => producto.id === productoAgregado.id));
+        productosEnCarrito[index].cantidad++;
+    }else{
+        productoAgregado.cantidad = 1;
+        productosEnCarrito.push(productoAgregado);
+    }
+    actualizarNumerito();
+    setProductosEnCarrito();
+}
+
+function actualizarNumerito() {
+    let nuevoNumerito = productosEnCarrito.reduce((acc, producto)=> acc + producto.cantidad, 0);
+    numerito.innerText = nuevoNumerito;
+}
 
 
 
