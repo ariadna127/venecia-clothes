@@ -104,7 +104,6 @@ let productosEnCarrito = localStorage.getItem('productos-carrito');
 
 
 if (productosEnCarrito) {
-    console.log('HOLA');
     productosEnCarrito = JSON.parse(productosEnCarrito);
     actualizarNumerito();
 }else{
@@ -114,14 +113,22 @@ if (productosEnCarrito) {
 
 function agregarAlCarrito(e) {
     const productoAgregado = buscarProducto(idProducto, productos);
-
-    if (productosEnCarrito.some(producto => producto.id === productoAgregado.id)) {
-        const index = productosEnCarrito.findIndex((producto => producto.id === productoAgregado.id));
-        productosEnCarrito[index].cantidad += cantidadProducto;
+    productosEnCarrito = localStorage.getItem('productos-carrito');
+    productosEnCarrito = JSON.parse(productosEnCarrito);
+    if (productosEnCarrito) {
+        if (productosEnCarrito.some(producto => producto.id === productoAgregado.id)) {
+            const index = productosEnCarrito.findIndex((producto => producto.id === productoAgregado.id));
+            productosEnCarrito[index].cantidad += cantidadProducto;
+        }else{
+            productoAgregado.cantidad = cantidadProducto;
+            productosEnCarrito.push(productoAgregado);
+        }
     }else{
+        productosEnCarrito = [];
         productoAgregado.cantidad = cantidadProducto;
         productosEnCarrito.push(productoAgregado);
     }
+
     actualizarNumerito();
     setProductosEnCarrito();
 }
