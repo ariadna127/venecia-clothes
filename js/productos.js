@@ -163,7 +163,6 @@ function filtrarCategoria() {
 //EVENTO ORDENAR POR
 
 function ordenarPor() {
-    const categoriaActual = getCategoria();
     const talleLs = getTalle();
     const preciosLs = getPreciosLs();
 

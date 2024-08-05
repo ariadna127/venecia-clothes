@@ -15,3 +15,5 @@ function actualizarNumerito() {
 }
 
 
+window.addEventListener('pageshow', actualizarNumerito);
+
