@@ -104,6 +104,7 @@ let productosEnCarrito = localStorage.getItem('productos-carrito');
 
 
 if (productosEnCarrito) {
+    console.log('HOLA');
     productosEnCarrito = JSON.parse(productosEnCarrito);
     actualizarNumerito();
 }else{
@@ -134,6 +135,7 @@ function actualizarNumerito() {
 
 
 window.addEventListener('pageshow', ()=>{
+    console.log('PAGES');
     productosEnCarrito = JSON.parse(localStorage.getItem('productos-carrito'));
     if (productosEnCarrito) {
         console.log(productosEnCarrito);
