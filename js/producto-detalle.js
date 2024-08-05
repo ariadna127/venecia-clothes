@@ -134,6 +134,7 @@ function actualizarNumerito() {
 
 
 window.addEventListener('pageshow', ()=>{
+    productosEnCarrito = JSON.parse(localStorage.getItem('productos-carrito'));
     if (productosEnCarrito) {
         console.log(productosEnCarrito);
         actualizarNumerito();
