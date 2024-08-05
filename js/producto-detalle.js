@@ -127,6 +127,7 @@ function agregarAlCarrito(e) {
 
 function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto)=> acc + producto.cantidad, 0);
+    console.log(nuevoNumerito);
     numerito.innerText = nuevoNumerito;
 }
 
@@ -134,6 +135,7 @@ function actualizarNumerito() {
 
 window.addEventListener('pageshow', ()=>{
     if (productosEnCarrito) {
+        console.log(productosEnCarrito);
         actualizarNumerito();
     }else{
         numerito.innerText = 0;
