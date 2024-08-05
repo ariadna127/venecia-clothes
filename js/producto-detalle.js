@@ -27,7 +27,7 @@ function buscarProducto(idProducto, productos) {
     return productos.find(producto => producto.id == idProducto);
 }
 
-
+let cantidadProducto = 1;
 
 
 // funcion mostrar producto
@@ -49,7 +49,7 @@ function mostrarProducto() {
                 <div class="div-agregar-carrito">
                     <div>
                         <i id="restar" class="bi bi-dash-lg suma-resta"></i>
-                        <span>0</span>
+                        <span id="cantidad-num" class ="cantidad-num">${cantidadProducto}</span>
                         <i id="sumar" class="bi bi-plus-lg suma-resta"></i>
                     </div>
                     <button class="btn-agregar" id="${producto.id}">Agregar al carrito</button>                 
@@ -65,17 +65,28 @@ function mostrarProducto() {
 
 mostrarProducto();
 
+
+//Funcion para elegir la cantidad de productos a comprar
 function actualizarBotonesSumarRestar() {
     const botonesSumaResta = document.querySelectorAll('.suma-resta');
+    let numCantidad = document.getElementById('cantidad-num');
     botonesSumaResta.forEach((btn)=>{
-        btn.addEventListener('click', ()=>{
-            console.log('hola');
+        btn.addEventListener('click', (e)=>{
+            const idBoton = e.currentTarget.id;
+            if (idBoton == "sumar") {
+                cantidadProducto++;
+                numCantidad.innerText = cantidadProducto;
+            }else if (numCantidad.innerText > 1) {
+                cantidadProducto--;
+                numCantidad.innerText = cantidadProducto;
+            }
+            
         })
     })
 }
 
 
-
+//Funcion para agregar productos al carrito
 function actualizarBotonAgregar() {
     const botonAgregar = document.querySelector('.btn-agregar');
 
@@ -105,9 +116,9 @@ function agregarAlCarrito(e) {
 
     if (productosEnCarrito.some(producto => producto.id === productoAgregado.id)) {
         const index = productosEnCarrito.findIndex((producto => producto.id === productoAgregado.id));
-        productosEnCarrito[index].cantidad++;
+        productosEnCarrito[index].cantidad += cantidadProducto;
     }else{
-        productoAgregado.cantidad = 1;
+        productoAgregado.cantidad = cantidadProducto;
         productosEnCarrito.push(productoAgregado);
     }
     actualizarNumerito();
@@ -118,6 +129,7 @@ function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto)=> acc + producto.cantidad, 0);
     numerito.innerText = nuevoNumerito;
 }
+
 
 
 

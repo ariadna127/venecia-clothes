@@ -4,7 +4,6 @@ const cerrarMenu = document.querySelector('#cerrar-menu');
 
 menu.addEventListener('click', ()=>{
     ulMenu.classList.add('visible');
-    bodyClass.classList.add('shadow');
 })
 
 cerrarMenu.addEventListener('click', ()=>{
