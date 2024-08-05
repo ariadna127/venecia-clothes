@@ -150,10 +150,18 @@ function actualizarBotonesRestar() {
             const index = productosEnCarrito.findIndex((producto)=> producto.id == idBoton);
             if (productosEnCarrito[index].cantidad > 1) {
                 productosEnCarrito[index].cantidad--;
-                localStorage.setItem('productos-carrito', productosEnCarrito);
+                localStorage.setItem('productos-carrito', JSON.stringify(productosEnCarrito));
                 cargarProductosEnCarrito();
             }
             
         })
     })
 }
+
+window.addEventListener('pageshow', ()=>{
+    if (productosEnCarrito) {
+        actualizarNumerito();
+    }else{
+        numerito.innerText = 0;
+    }
+});

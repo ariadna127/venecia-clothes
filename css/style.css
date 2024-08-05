@@ -72,6 +72,9 @@ header {
   justify-content: center;
   align-items: center;
 }
+.header-div .buscar form button i {
+  font-size: 1rem;
+}
 .header-div a {
   text-decoration: none;
   color: white;
@@ -82,6 +85,10 @@ header {
   font-size: 3.125rem;
   font-family: "venecia";
   font-weight: lighter;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 69px;
 }
 .header-div .usuario-carrito {
   display: flex;
@@ -103,13 +110,16 @@ header {
   height: 2rem;
 }
 .header-div .usuario-carrito span {
-  background-color: rgb(24, 23, 23);
-  font-size: smaller;
+  background-color: white;
+  color: black;
+  font-size: 10px;
+  text-align: center;
   position: absolute;
-  top: 15%;
-  right: -2%;
-  padding: 0.0625rem 0.1563rem;
+  top: 5%;
+  right: 16%;
+  padding: 0.0625rem 0.125rem;
   border-radius: 10px;
+  height: 14px;
 }
 
 .header-nav {
@@ -995,7 +1005,9 @@ footer div img {
     height: 4.375rem;
   }
   .header-div a h1 {
+    margin: 0;
     text-align: center;
+    height: 4.3125rem;
   }
   .header-div .usuario-carrito {
     width: 15.625rem;
@@ -1003,7 +1015,10 @@ footer div img {
     padding: 0.625rem 0.3125rem 0 0;
   }
   .header-div .usuario-carrito span {
-    right: 0;
+    font-size: 11px;
+    top: -1%;
+    right: 4%;
+    height: 0.875rem;
   }
   .header-nav {
     padding-top: 0;

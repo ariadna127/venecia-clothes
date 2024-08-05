@@ -132,7 +132,13 @@ function actualizarNumerito() {
 
 
 
-
+window.addEventListener('pageshow', ()=>{
+    if (productosEnCarrito) {
+        actualizarNumerito();
+    }else{
+        numerito.innerText = 0;
+    }
+});
 
 
 
