@@ -90,8 +90,26 @@ function actualizarBotonesSumarRestar() {
 function actualizarBotonAgregar() {
     const botonAgregar = document.querySelector('.btn-agregar');
 
-    botonAgregar.addEventListener('click', agregarAlCarrito);
+    botonAgregar.addEventListener('click', ()=>{
+        agregarAlCarrito();
+        Toastify({
+            text: "¡Se agregó al carrito con éxito!",
+            duration: 2000,
+            close: false,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "black",
+              color: "white"
+            },
+          }).showToast();
+    });
 }
+
+
+//Alerta de toastify
+
 
 
 
